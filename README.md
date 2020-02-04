@@ -4,7 +4,9 @@ Repository contentente alcuni esami con soluzione proposti durante lo sbarrament
 ## Consigli per prepararsi al meglio:
 * Iniziate leggendo il pdf ML for dummies
 * Guardatevi questi [video tutorial](https://www.youtube.com/playlist?list=PL-eVNDa9MNJczU4ZjhJDT8rIcCa12DyAx) (in inglese ma ben fatti - bastano i primi 10/11)
-* Cercate di capire le soluzioni degli esami passati e poi provate a fare gli esami da soli. Gli esami di kuper sono, fino a questo momento, più semplici rispetto quelli di Abeni degli anni scorsi.
+* *FACOLTATIVO:* leggetevi velocemente le slide del corso
+* Provate a fare gli esercizi che trovate nella cartella Esercizi.
+* Provate a fare gli esami passati che trovate nella cartella Esami. Gli esami di kuper sono (fino a questo momento) più semplici rispetto quelli degli anni precedenti.
 
 ### Piccola guida PolyML
 **INSTALLAZIONE SU WINDOWS**
