@@ -34,3 +34,7 @@ Qui sotto la [lista delle librerie](https://www.itu.dk/~sestoft/mosmllib/index.h
 * [String](https://www.itu.dk/~sestoft/mosmllib/String.html)
 * [Char](https://www.itu.dk/~sestoft/mosmllib/Char.html)
 * [Math](https://www.itu.dk/~sestoft/mosmllib/Math.html)
+
+## Parte teorica - 2° Parte dell'esame
+
+Trovate una repository utile per preparare la parte teorica a [questo link](https://github.com/Pater999/UNITN-lingprog-simulatore-mod2).
