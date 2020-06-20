@@ -48,4 +48,4 @@ Trovate una repository utile per preparare la parte teorica a [questo link](http
 
 ## Nuovi esami
 
-Gli esami non vengono più pubblicati dal professore. L'unico modo per mantenere questa repository aggiornata è ricordarsi il testo e pubblicarlo qui. Aprendo un [issue](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/issues), una [pool request](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/pulls) oppure contattandomi su [telegram](https://t.me/pater999) scrivendomi il testo dell'esame svolto potreste essere utili anche agli studenti degli anni successivi.
+Gli esami non vengono più pubblicati dal professore. L'unico modo per mantenere questa repository aggiornata è ricordarsi il testo e pubblicarlo qui. Aprendo un [issue](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/issues), una [pull request](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/pulls) oppure contattandomi su [telegram](https://t.me/pater999) scrivendomi il testo dell'esame svolto potreste essere utili anche agli studenti degli anni successivi.
