@@ -35,6 +35,9 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
 - [Settembre 2019](#esame-settembre-2019)
 - [Gennaio 2020](#esame-gennaio-2020)
 - [Febbraio 2020](#esame-febbraio-2020)
+- [Giugno 2020](#esame-giugno-2020)
+  - [Turno 1](#turno-1-g2020)
+  - [Turno 2](#turno-2-g2020)
 
 ### Esame giugno 2015
 
@@ -914,3 +917,51 @@ f1 [1,2,2,3,4];
 f1[3,2,1];
 f1[4,12,3,44,0];
 ```
+
+### Esame giugno 2020
+
+#### Turno 1 G2020
+
+##### Testo
+
+Si scriva una funzione **sommali** (avente tipo `int -> int list -> int`) che riceve come argomento un intero `n` ed una lista di interi `l`.
+La funzione **sommali** somma ad n gli elementi di l che hanno posizione pari (se la lista contiene meno di 2 elementi, contali ritorna n).
+
+Come esempio, l'invocazione
+
+```
+sommali 0 [1,2];
+deve avere risultato 2,
+sommali 1 [1,2,3];
+deve avere risultato 3: e
+sommali 2 [1,2,3,4];
+deve avere risultato 8.
+```
+
+IMPORTANTE: notare il tipo della funzione!.
+
+La funzione sommali deve essere definita in un file .sml autocontenuto ma separato da qualsiasi codice di test si sia usato. Si consegni il file .sml contenente la definizione di sommali.
+
+##### Soluzione
+
+```
+ fun sommali z [] = z
+  |  sommali z (a::[]) = z
+  |  sommali z (a::b::c) = b + (sommali z c);
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+sommali 0 [1,2];
+sommali 1 [1,2,3];
+sommali 2 [1,2,3,4];
+```
+
+#### Turno 2 G2020
+
+##### Testo
+
+##### Soluzione
+
+##### Testing (Non fa parte della soluzione - utile per capire)
