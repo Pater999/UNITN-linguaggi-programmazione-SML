@@ -925,7 +925,7 @@ f1[4,12,3,44,0];
 ##### Testo
 
 Si scriva una funzione **sommali** (avente tipo `int -> int list -> int`) che riceve come argomento un intero `n` ed una lista di interi `l`.
-La funzione **sommali** somma ad n gli elementi di l che hanno posizione pari (se la lista contiene meno di 2 elementi, contali ritorna n).
+La funzione **sommali** somma ad n gli elementi di l che hanno posizione pari (se la lista contiene meno di 2 elementi, sommali ritorna n).
 
 Come esempio, l'invocazione
 
@@ -962,6 +962,32 @@ sommali 2 [1,2,3,4];
 
 ##### Testo
 
+Si scriva una funzione **conta** (avente tipo `''a list -> int`) che riceve come argomento una lista di `''a l`. La funzione **conta** ritorna il numero di elementi della lista senza considerare i duplicati.
+
+Come esempio, l'invocazione
+
+```
+conta ["pera", "pera", "pera", "pera"]; deve avere risultato 1;
+conta ["red", "red", "green", "blue"]; deve avere risultato 3.
+```
+
+La funzione conta deve essere definita in un file .sml autocontenuto ma separato da qualsiasi codice di test si sia usato. Si consegni il file .sml contenente la definizione di conta.
+
 ##### Soluzione
 
+```
+val rec conta = fn [] => 0
+                 | a::b => if (List.exists ((fn y => a = y)) b) then (conta b) else 1+(conta b);
+```
+
 ##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+conta ["pera", "pera", "pera", "pera"];
+conta ["red", "red", "green", "blue"];
+conta ["red"];
+conta [];
+conta [1,2,4,5,6,0,1,4,5];
+conta [true, false, true, false];
+conta [#"A",#"a",#"B",#"b"];
+```

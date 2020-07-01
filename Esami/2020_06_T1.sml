@@ -2,7 +2,7 @@
     ESAME giugno 2020 - Turno 1
     Testo:    
     Si scriva una funzione sommali (avente tipo int -> int list -> int) che riceve come argomento un intero n ed una lista di interi l. 
-    La funzione sommali somma ad n gli elementi di l che hanno posizione pari (se la lista contiene meno di 2 elementi, contali ritorna n).
+    La funzione sommali somma ad n gli elementi di l che hanno posizione pari (se la lista contiene meno di 2 elementi, sommali ritorna n).
     
     Come esempio, l'invocazione
     
