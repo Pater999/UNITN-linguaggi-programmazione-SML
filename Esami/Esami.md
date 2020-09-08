@@ -39,6 +39,7 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
   - [Turno 1](#turno-1-g2020)
   - [Turno 2](#turno-2-g2020)
 - [Luglio 2020](#esame-luglio-2020)
+- [Settembre 2020](#esame-settembre-2020)
 
 ### Esame giugno 2015
 
@@ -1036,4 +1037,54 @@ val lega = fn e:ambiente => fn nome => fn valore => (fn n => if (n = nome)
 ((lega ambientevuoto "a"1)"boh");
 ((lega (lega ambientevuoto "a"1)"boh"~1)"boh");
 ((lega (lega ambientevuoto "a"1)"boh"~1)"mah");
+```
+
+### Esame settembre 2020
+
+##### Testo
+
+Si consideri il tipo di dato `FOR = For of int * (int -> int);` i cui valori `For(n, f)` rappresentano funzioni che implementano un ciclo for come il seguente:
+
+```
+int ciclofor (int x) {
+    for (int i = 0; i < n; i++) {
+        x = f(x);
+    }
+    return x;
+}
+```
+
+Si scriva una funzione **eval** (avente tipo `FOR -> (int -> int)`) che riceve come argomento un valore di tipo FOR e ritorna una funzione da interi ad interi che implementa il ciclo indicato qui sopra (applica n volte la funzione f all'argomento).
+
+Come esempio, `se val f = fn x => x * 2`, allora eval `(For(3, f))` ritornerà una funzione che dato un numero i ritorna i * 8:
+
+**Esempi esecuzione:**
+
+> val f = fn x => x \* 2;
+> `val f = fn: int -> int`
+> eval (For(3, f));
+> `val it = fn: int -> int`
+> val g = eval (For(3, f));
+> `val g = fn: int -> int`
+> g 5;
+> `val it = 40: int`
+
+##### Soluzione
+
+```
+datatype FOR = For of int * (int -> int);
+val rec eval = fn For (n, f) => fn x => if (n > 0)
+                                        then
+                                            eval (For (n - 1, f)) (f x)
+                                        else
+                                            x;
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+val f = fn x => x * 2;
+eval (For(3, f));
+val g = eval (For(3, f));
+g 5;
 ```
