@@ -40,6 +40,7 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
   - [Turno 2](#turno-2-g2020)
 - [Luglio 2020](#esame-luglio-2020)
 - [Settembre 2020](#esame-settembre-2020)
+- [Febbraio 2021](#esame-febbraio-2021)
 
 ### Esame giugno 2015
 
@@ -1056,7 +1057,7 @@ int ciclofor (int x) {
 
 Si scriva una funzione **eval** (avente tipo `FOR -> (int -> int)`) che riceve come argomento un valore di tipo FOR e ritorna una funzione da interi ad interi che implementa il ciclo indicato qui sopra (applica n volte la funzione f all'argomento).
 
-Come esempio, `se val f = fn x => x * 2`, allora eval `(For(3, f))` ritornerà una funzione che dato un numero i ritorna i * 8:
+Come esempio, `se val f = fn x => x * 2`, allora eval `(For(3, f))` ritornerà una funzione che dato un numero i ritorna i \* 8:
 
 **Esempi esecuzione:**
 
@@ -1087,4 +1088,32 @@ val f = fn x => x * 2;
 eval (For(3, f));
 val g = eval (For(3, f));
 g 5;
+```
+
+### Esame febbraio 2021
+
+##### Testo
+
+Implementare una funzione **f** che data una lista `[a1,...,an]`, calcoli `a1-a2+a3-a4+...`
+La funzione così definita dovrà funzionare con liste di **qualsiasi lunghezza**.
+
+##### Soluzione
+
+```
+fun f [] = 0
+ |  f (a::[]) = a
+ |  f (a::b::[]) = a - b
+ |  f (a::b::l) = a - b + f(l);
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+ f [];
+ f [1];
+ f [1,2];
+ f [1,2,3];
+ f [1,2,3,4];
+ f [3,3,3,3,3,3,3,3,3,3,3,3];
+ f [3,3,3,3,3,3,3,3,3,3,3,3,3];
 ```
