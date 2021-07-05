@@ -1,14 +1,15 @@
-# UNITN-linguaggi-programmazione-SML
+# UNITN linguaggi programmazione SML
 
 Repository contentente alcuni esami con soluzione proposti durante lo sbarramento dell'esame di Linguaggi di programmazione modulo 2 (prof. Kuper).
 
-## Consigli per prepararsi al meglio:
+## Consigli per prepararsi al meglio
 
-- Iniziate leggendo il pdf ML for dummies
+- Iniziate leggendo il [PDF ML for dummies](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/blob/master/ML%20for%20Dummies.pdf)
 - Guardatevi questi [video tutorial](https://www.youtube.com/playlist?list=PL-eVNDa9MNJczU4ZjhJDT8rIcCa12DyAx) (in inglese ma ben fatti - bastano i primi 10/11)
+- Provate a fare gli esercizi che trovate nella [cartella Esercizi](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/tree/master/Esercizi).
+- Provate a fare gli esami passati che trovate nella [cartella Esami](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/tree/master/Esami) o raccolti in [questo file](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/blob/master/Esami/Esami.md). 
+  Gli esami di Kuper sono (_fino a questo momento_) più **semplici** rispetto quelli degli anni precedenti.
 - _FACOLTATIVO:_ leggetevi velocemente le slide del corso
-- Provate a fare gli esercizi che trovate nella cartella Esercizi.
-- Provate a fare gli esami passati che trovate nella cartella Esami. Gli esami di Kuper sono (fino a questo momento) più semplici rispetto quelli degli anni precedenti.
 - Tutte le risorse presenti in questa repository sono scaricabili a [questo link](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/releases).
 
 ### Piccola guida PolyML
@@ -42,6 +43,8 @@ Qui sotto la [lista delle librerie](https://www.itu.dk/~sestoft/mosmllib/index.h
 - [Char](https://www.itu.dk/~sestoft/mosmllib/Char.html)
 - [Math](https://www.itu.dk/~sestoft/mosmllib/Math.html)
 
+### Data aggiornamento
+Questa repository è aggiornata all'esame di **Giugno 2021**.
 ## Parte teorica - 2° Parte dell'esame
 
 Trovate una repository utile per preparare la parte teorica a [questo link](https://github.com/Pater999/UNITN-lingprog-simulatore-mod2). Essa comprende un simulatore web con le domande prese dagli esami passati (che spesso si sono rivelate **uguali o simili** negli esami recenti).
