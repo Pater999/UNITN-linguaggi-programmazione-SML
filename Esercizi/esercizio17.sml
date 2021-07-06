@@ -11,7 +11,8 @@
     SOLUZIONE:
 *)
 
-    fun sumlists(l,[]) = l
+    fun sumlists(nil, nil) = 0::nil
+     |  sumlists(l,[]) = l
      |  sumlists([],k) = k
      |  sumlists(x::l,y::k) = (x+y)::sumlists(l,k);
 
