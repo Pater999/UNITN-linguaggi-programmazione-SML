@@ -15,7 +15,7 @@
 
 (*  ed un intero può essere aggiunto ad un insieme tramite la funzione aggiungi: *)
 
-    val aggiungi = fn f:insiemediinteri => fn x:int => (fn n:int => if (n = x) then true else false ):insiemediinteri;
+    val aggiungi = fn f:insiemediinteri => fn x:int => (fn n:int => if (n = x orelse f n) then true else false ):insiemediinteri;
 
 (*  É possibile verificare se un intero è contenuto in un insieme tramite la funzione contiene: *)
     
