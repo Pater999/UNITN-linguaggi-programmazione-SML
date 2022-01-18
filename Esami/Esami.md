@@ -1,6 +1,6 @@
 ## Raccolta esami SML con soluzione (Linguaggi di programmazione mod. 2, UNITN, prof. Kuper)
 
-Questi appunti sono stati creati da [Pater999](https://github.com/Pater999).
+Questi appunti sono stati creati da [Pater999](https://github.com/Pater999) con la gentile collaborazione di altri studenti degli anni successivi.
 Altri appunti/esercizi/esami/consigli si possono trovare [in questa repository github](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML).
 L'ultima versione di questo file è scaricabile al [seguente link](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/releases).
 Prima di leggere questo file consiglio di leggere il [seguente Readme](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/blob/master/README.md).
@@ -42,6 +42,8 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
 - [Settembre 2020](#esame-settembre-2020)
 - [Febbraio 2021](#esame-febbraio-2021)
 - [Giugno 2021](#esame-giugno-2021)
+- [Luglio 2021](#esame-luglio-2021)
+- [Gennaio 2022](#esame-gennaio-2022)
 
 ### Esame giugno 2015
 
@@ -1175,4 +1177,75 @@ fun f file=if TextIO.endOfStream(file) then [TextIO.inputN(file,2)] else
        keep::(f file)
     end;
 f input;
+```
+
+### Esame luglio 2021
+
+##### Testo
+
+Si scriva una funzione **conta** (avente tipo `' 'a list -> int`) che riceve come argomento una lista di `' 'a`. La funzione conta ritorna il numero di elementi della lista senza considerare i duplicati.
+
+Come esempio, l'invocazione `conta ["pera", "pera", "pera", "pera"];` deve avere risultato 1, conta `["red", "red", "green", "blue"];` deve avere risultato **3** e `conta [2, 3, 4, 2];` deve avere risultato **3**.
+
+**IMPORTANTE**: notare il tipo della funzione!
+
+##### Soluzione
+
+```
+val rec conta = fn [] => 0
+                 | a::b => if (List.exists ((fn y => a = y)) b) then (conta b) else 1+(conta b);
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+conta ["pera", "pera", "pera", "pera"];
+conta ["red", "red", "green", "blue"];
+conta ["red"];
+conta [];
+conta [1,2,4,5,6,0,1,4,5];
+conta [true, false, true, false];
+conta [#"A",#"a",#"B",#"b"];
+```
+
+### Esame gennaio 2022
+
+##### Testo
+
+Si scriva una funzione **sommali** (avente tipo `int -> int list -> int`) che riceve come argomento un intero n ed una lista di interi l. La funzione **sommali** somma ad n gli elementi di l che hanno posizione pari (se la lista contiene meno di 2 elementi, sommali ritorna n).
+
+Come esempio, l'invocazione
+`sommali 0 [1,2];`
+deve avere risultato 2;
+`sommali 1 [1,2,3];`
+deve avere risultato 3;
+`sommali 2 [1,2,3,4];`
+deve avere risultato 8.
+
+##### Soluzione
+
+```
+fun sommali z [] = z
+ |  sommali z (a::[]) = z
+ |  sommali z (a::b::c) = b + (sommali z c);
+```
+
+altro modo extra usando fn -> stesso risultato
+
+```
+val rec sommali_diversa = fn z => fn [] => z
+                                   | a::[] => z
+                                   | a::b::c => b + (sommali z c);
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+sommali 0 [1,2];
+sommali 1 [1,2,3];
+sommali 2 [1,2,3,4];
+
+sommali_diversa 0 [1,2];
+sommali_diversa 1 [1,2,3];
+sommali_diversa 2 [1,2,3,4];
 ```
