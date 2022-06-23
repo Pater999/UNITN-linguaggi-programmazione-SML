@@ -44,6 +44,7 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
 - [Giugno 2021](#esame-giugno-2021)
 - [Luglio 2021](#esame-luglio-2021)
 - [Gennaio 2022](#esame-gennaio-2022)
+- [Giugno 2022](#esame-giugno-2022)
 
 ### Esame giugno 2015
 
@@ -1125,17 +1126,17 @@ fun f [] = 0
 
 ##### Testo
 
-Implementare una funzione **f** che, dato un file `"test.txt"` contenente una lista con un numero
+Implementare una funzione **f** che, dato un file `"text.txt"` contenente una lista con un numero
 pari di caratteri restituisca una lista (type `string list`) di coppie di caratteri, ignorando i
 primi due e proponendo i successivi due iterativamente (quindi si avranno i caratteri 3,4 seguiti 
 da 7,8, e così via).
 
-Il file contenente il codice e file `"test.txt"` devono trovarsi nella stessa directory. Il file
-`"test.txt"` di esempio viene fornito unitamente a questo file.
+Il file contenente il codice e file `"text.txt"` devono trovarsi nella stessa directory. Il file
+`"text.txt"` di esempio viene fornito unitamente a questo file.
 
 Un'ipotetica esecuzione del codice da bash potrebbe essere:
 
-Assicurarsi di avere il file `"test.txt"`.
+Assicurarsi di avere il file `"text.txt"`.
 Lanciare poly da terminale
 
     > use "cognome_nome.sml";
@@ -1150,7 +1151,7 @@ di test sia usato. Si consegni il file `.sml` contente la definizione di **f**. 
 ```
 fun f filename =
     let
-        val file = TextIO.openIn ("test.txt");
+        val file = TextIO.openIn(filename);
         val lista = explode (TextIO.inputAll file);
         fun coppie nil = [""]
           | coppie [_] = [""]
@@ -1168,7 +1169,7 @@ f "text.txt";
 Oppure altra **soluzione valida** *(By Alessio Blascovich)*
 
 ```
-val input = TextIO.openIn("test.txt");
+val input = TextIO.openIn("text.txt");
 fun f file=if TextIO.endOfStream(file) then [TextIO.inputN(file,2)] else
     let
        val trash=TextIO.inputN(file,2)
@@ -1248,4 +1249,62 @@ sommali 2 [1,2,3,4];
 sommali_diversa 0 [1,2];
 sommali_diversa 1 [1,2,3];
 sommali_diversa 2 [1,2,3,4];
+```
+
+### Esame giugno 2022
+
+##### Testo
+
+Implementare una funzione **f** che, dato un file `"text.txt"` contenente una lista con un numero
+pari di caratteri restituisca una lista (type `string list`) di coppie di caratteri, ignorando i
+primi due e proponendo i successivi due iterativamente (quindi si avranno i caratteri 3,4 seguiti 
+da 7,8, e così via).
+
+Il file contenente il codice e file `"text.txt"` devono trovarsi nella stessa directory. Il file
+`"text.txt"` di esempio viene fornito unitamente a questo file.
+
+Un'ipotetica esecuzione del codice da bash potrebbe essere:
+
+Assicurarsi di avere il file `"text.txt"`.
+Lanciare poly da terminale
+
+    > use "cognome_nome.sml";
+    val it = ["ac","ef","54",""]: string list
+
+La funzione **f** deve essere definita in un file `.sml` autocontenuto ma separato da qualsiasi codice
+di test sia usato. Si consegni il file `.sml` contente la definizione di **f**. Rinominare il file con
+`cognome_nome.sml`. 
+
+##### Soluzione
+
+```
+fun f filename =
+    let
+        val file = TextIO.openIn(filename);
+        val lista = explode (TextIO.inputAll file);
+        fun coppie nil = [""]
+          | coppie [_] = [""]
+          | coppie (a::b::[]) = [""]
+          | coppie (a::b::c::[]) = [""]
+          | coppie (a::b::c::d::[]) = implode [c, d] :: [""] 
+          | coppie (a::b::c::d::l) = (implode [c, d]) :: coppie l;
+    in
+        TextIO.closeIn file;
+        coppie lista
+    end;
+f "text.txt";
+
+```
+Oppure altra **soluzione valida** *(By Alessio Blascovich)*
+
+```
+val input = TextIO.openIn("text.txt");
+fun f file=if TextIO.endOfStream(file) then [TextIO.inputN(file,2)] else
+    let
+       val trash=TextIO.inputN(file,2)
+       val keep=TextIO.inputN(file,2)
+    in
+       keep::(f file)
+    end;
+f input;
 ```

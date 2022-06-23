@@ -1,5 +1,5 @@
 (*  
-    ESAME giugno 2021
+    ESAME giugno 2022
 
     Implementare una funzione "f" che, dato un file "test.txt" contenente una lista con un numero
     pari di caratteri restituisca una lista (type string list) di coppie di caratteri, ignorando i
@@ -52,3 +52,5 @@
          keep::(f2 file)
       end;
     f2 input;
+
+(* NOTE: UGUALE ad esame 2021_06.sml *)

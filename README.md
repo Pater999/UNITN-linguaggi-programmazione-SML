@@ -1,6 +1,8 @@
-# UNITN linguaggi programmazione SML
+## UNITN programmazione funzionale - SML
 
-Repository contentente alcuni esami con soluzione proposti durante lo sbarramento dell'esame di Linguaggi di programmazione modulo 2 (prof. Kuper).
+![Stars](https://img.shields.io/github/stars/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Release](https://img.shields.io/github/release/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Downloads](https://img.shields.io/github/downloads/pater999/UNITN-linguaggi-programmazione-SML/total.svg) ![Pull Requests](https://img.shields.io/github/issues-pr-closed/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Forks](https://img.shields.io/github/forks/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Made with markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg) ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+
+Repository contenente alcuni esami con soluzione proposti durante lo sbarramento dell'esame di Programmazione Funzionale (Ex. Linguaggi di programmazione modulo 2) tenuto dal prof Kuper all'Università di Trento.
 
 ## Consigli per prepararsi al meglio
 
@@ -8,8 +10,8 @@ Repository contentente alcuni esami con soluzione proposti durante lo sbarrament
 - Guardatevi questi [video tutorial](https://www.youtube.com/playlist?list=PL-eVNDa9MNJczU4ZjhJDT8rIcCa12DyAx) (in inglese ma ben fatti - bastano i primi 10/11)
 - Provate a fare gli esercizi che trovate nella [cartella Esercizi](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/tree/master/Esercizi).
 - Provate a fare gli esami passati che trovate nella [cartella Esami](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/tree/master/Esami) o raccolti in [questo file](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/blob/master/Esami/Esami.md). 
-  Gli esami di Kuper sono (_fino a questo momento_) più **semplici** rispetto quelli degli anni precedenti.
-- _FACOLTATIVO:_ leggetevi velocemente le slide del corso
+  Gli esami di Kuper sono (_fino a questo momento_) più **semplici** rispetto quelli degli anni precedenti e si <u>**ripetono spesso**</u>.
+- _FACOLTATIVO:_ leggetevi velocemente le slide del corso.
 - Tutte le risorse presenti in questa repository sono scaricabili a [questo link](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/releases).
 
 ### Piccola guida PolyML
@@ -44,11 +46,11 @@ Qui sotto la [lista delle librerie](https://www.itu.dk/~sestoft/mosmllib/index.h
 - [Math](https://www.itu.dk/~sestoft/mosmllib/Math.html)
 
 ### Data aggiornamento
-Questa repository è aggiornata all'esame di **Gennaio 2022**.
+Questa repository è aggiornata all'esame di **Giugno 2022**.
 ## Parte teorica - 2° Parte dell'esame
 
 Trovate una repository utile per preparare la parte teorica a [questo link](https://github.com/Pater999/UNITN-lingprog-simulatore-mod2). Essa comprende un simulatore web con le domande prese dagli esami passati (che spesso si sono rivelate **uguali o simili** negli esami recenti).
 
 ## Nuovi esami
 
-Gli esami non vengono più pubblicati dal professore. L'unico modo per mantenere questa repository aggiornata è ricordarsi il testo e pubblicarlo qui. Aprendo un [issue](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/issues), una [pull request](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/pulls) oppure contattandomi su [telegram](https://t.me/pater999) scrivendomi il testo dell'esame svolto potreste essere utili anche agli studenti degli anni successivi.
+Gli esami **non** vengono più pubblicati dal professore. L'unico modo per mantenere questa repository aggiornata è ricordarsi il testo e pubblicarlo qui. Aprendo un [issue](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/issues), una [pull request](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML/pulls) oppure contattandomi su [telegram](https://t.me/pater999) scrivendomi il testo dell'esame svolto. Facendo ciò sarete sicuramente utili agli studenti degli anni successivi. A tal proposito ringrazio **<u>tutti</u>** quelli che hanno contribuito a mantenere questa repository aggiornata!
