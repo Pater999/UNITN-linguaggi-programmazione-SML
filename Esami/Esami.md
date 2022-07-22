@@ -45,6 +45,7 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
 - [Luglio 2021](#esame-luglio-2021)
 - [Gennaio 2022](#esame-gennaio-2022)
 - [Giugno 2022](#esame-giugno-2022)
+- [Luglio 2022](#esame-luglio-2022)
 
 ### Esame giugno 2015
 
@@ -1307,4 +1308,32 @@ fun f file=if TextIO.endOfStream(file) then [TextIO.inputN(file,2)] else
        keep::(f file)
     end;
 f input;
+```
+
+### Esame luglio 2022
+
+##### Testo
+
+Scrivere una funzione **f** di tipo `int list -> int list` che presa in input una lista trasformi ogni elemento "a" della lista nel seguente modo:
+
+- se a >= 0 allora l'elemento "a" dovrà essere trasformato in a^2-1
+- altrimenti l'elemento "a" dovrà essere trasformato in a^2+1
+
+ESEMPIO
+`f [~1,2,3,0,~5,6];`
+dovrà dare in output:
+`val it = [2, 3, 8, ~1, 26, 35]: int list`
+
+##### Soluzione
+
+```
+fun f [] = []
+ |  f (a::b) = if (a>=0) then ((a*a)-1)::(f b) else ((a*a)+1)::(f b);
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+f [~1,2,3,0,~5,6];
+f [0,~1];
 ```
