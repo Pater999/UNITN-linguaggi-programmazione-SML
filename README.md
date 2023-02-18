@@ -46,7 +46,7 @@ Qui sotto la [lista delle librerie](https://www.itu.dk/~sestoft/mosmllib/index.h
 - [Math](https://www.itu.dk/~sestoft/mosmllib/Math.html)
 
 ### Data aggiornamento
-Questa repository è aggiornata all'esame di **luglio 2022**.
+Questa repository è aggiornata all'esame di **febbraio 2023**.
 ## Parte teorica - 2° Parte dell'esame
 
 Trovate una repository utile per preparare la parte teorica a [questo link](https://github.com/Pater999/UNITN-lingprog-simulatore-mod2). Essa comprende un simulatore web con le domande prese dagli esami passati (che spesso si sono rivelate **uguali o simili** negli esami recenti).
