@@ -2,7 +2,7 @@
 
 ![Stars](https://img.shields.io/github/stars/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Release](https://img.shields.io/github/release/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Downloads](https://img.shields.io/github/downloads/pater999/UNITN-linguaggi-programmazione-SML/total.svg) ![Pull Requests](https://img.shields.io/github/issues-pr-closed/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Forks](https://img.shields.io/github/forks/pater999/UNITN-linguaggi-programmazione-SML.svg) ![Made with markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg) ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
-Repository contenente alcuni esami con soluzione proposti durante lo sbarramento dell'esame di Programmazione Funzionale (Ex. Linguaggi di programmazione modulo 2) tenuto dal prof Kuper all'Università di Trento.
+Repository contenente alcuni esami con soluzione proposti durante lo sbarramento dell'esame di Programmazione Funzionale (Ex. Linguaggi di programmazione modulo 2) tenuto dai prof Kuper e Di Francescomarino all'Università di Trento.
 
 ## Consigli per prepararsi al meglio
 
@@ -46,7 +46,7 @@ Qui sotto la [lista delle librerie](https://www.itu.dk/~sestoft/mosmllib/index.h
 - [Math](https://www.itu.dk/~sestoft/mosmllib/Math.html)
 
 ### Data aggiornamento
-Questa repository è aggiornata all'esame di **febbraio 2023**.
+Questa repository è aggiornata all'esame di **luglio 2023**.
 ## Parte teorica - 2° Parte dell'esame
 
 Trovate una repository utile per preparare la parte teorica a [questo link](https://github.com/Pater999/UNITN-lingprog-simulatore-mod2). Essa comprende un simulatore web con le domande prese dagli esami passati (che spesso si sono rivelate **uguali o simili** negli esami recenti).

@@ -1,4 +1,4 @@
-## Raccolta esami SML con soluzione (Linguaggi di programmazione mod. 2, UNITN, prof. Kuper)
+## Raccolta esami SML con soluzione (Programmazione funzionale, UNITN, prof. Kuper | Di Francescomarino)
 
 Questi appunti sono stati creati da [Pater999](https://github.com/Pater999) con la gentile collaborazione di altri studenti degli anni successivi.
 Altri appunti/esercizi/esami/consigli si possono trovare [in questa repository github](https://github.com/Pater999/UNITN-linguaggi-programmazione-SML).
@@ -47,6 +47,8 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
 - [Giugno 2022](#esame-giugno-2022)
 - [Luglio 2022](#esame-luglio-2022)
 - [Febbraio 2023](#esame-febbraio-2023)
+- [Giugno 2023](#esame-giugno-2023)
+- [Luglio 2023](#esame-luglio-2023)
 
 ### Esame giugno 2015
 
@@ -804,8 +806,8 @@ comb(9,1);
 
 Scrivere una funzione **f** di tipo `int list -> int list` che presa in input una lista trasformi ogni elemento "a" della lista nel seguente modo:
 
-- se a >= 0 allora l'elemento "a" dovrà essere trasformato in a^2-1
-- altrimenti l'elemento "a" dovrà essere trasformato in a^2+1
+- se a >= 0 allora l'elemento "a" dovrà essere trasformato in a<sup>2-1</sup>
+- altrimenti l'elemento "a" dovrà essere trasformato in a<sup>2+1</sup>
 
 ESEMPIO
 `f [~1,2,3,0,~5,6];`
@@ -1317,8 +1319,8 @@ f input;
 
 Scrivere una funzione **f** di tipo `int list -> int list` che presa in input una lista trasformi ogni elemento "a" della lista nel seguente modo:
 
-- se a >= 0 allora l'elemento "a" dovrà essere trasformato in a^2-1
-- altrimenti l'elemento "a" dovrà essere trasformato in a^2+1
+- se a >= 0 allora l'elemento "a" dovrà essere trasformato in a<sup>2-1</sup>
+- altrimenti l'elemento "a" dovrà essere trasformato in a<sup>2+1</sup>
 
 ESEMPIO
 `f [~1,2,3,0,~5,6];`
@@ -1382,4 +1384,93 @@ val lega = fn e:ambiente => fn nome => fn valore => (fn n => if (n = nome)
 ((lega ambientevuoto "a"1)"boh");
 ((lega (lega ambientevuoto "a"1)"boh"~1)"boh");
 ((lega (lega ambientevuoto "a"1)"boh"~1)"mah");
+```
+
+### Esame giugno 2023
+
+##### Testo
+
+Scrivere una **curried function “f”** che prenda in input una lista di stringhe[a<sub>i</sub>, a<sub>i+1</sub>, …] e un intero n. 
+La funzione deve ritornare una lista di stringhe[b<sub>i</sub>, b<sub>i+1</sub>, …] in cui 
+- b<sub>i</sub> è uguale ad ai solo se la lunghezza di a<sub>i</sub> è minore o uguale ad n, 
+- altrimenti b<sub>i</sub> è uguale ad ai senza il primo carattere.
+
+Esempio:
+
+    >f [" ", "ab", "abc", "abcd", "abcde"] 3;
+    val it = [" ", "ab", "abc", "bcd", "bcde"]: string list
+
+##### Soluzione
+
+```
+fun f (nil) n = nil 
+ |  f (a::l) n = if (length (explode a) <= n) 
+        then 
+           a::(f (l) n) 
+        else 
+           implode(tl(explode(a)))::(f (l) n);
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+f [" ", "ab", "abc", "abcd", "abcde"] 3;
+```
+
+
+### Esame luglio 2023
+
+Si scriva una funzione **conta_duplicati** (avente tipo `''a list -> (''a * int) list`) che riceve come argomento una lista di `''a` e restituisce una `lista di tuple ''a * int`. 
+
+La funzione **conta_duplicati** ritorna una lista di coppie (elemento, numero di occorrenze dell'elemento), cioè per ogni elemento distinto e della lista di input, la lista di output contiene una coppia (e, numero di occorrenze di e).
+    
+Come esempio, l'invocazione:
+- `conta_duplicati [2, 2, 2, 2];` deve avere risultato [(2,4)],
+- `conta_duplicati ["lunedi'", "lunedi'", "martedi'", "lunedi'"];` deve avere risultato [("lunedi'",3), ("martedi'",1)],
+- `conta_duplicati ["blu", "verde", "verde", "blu", "rosso"];` deve avere risultato [("blu",2), ("verde",2), ("rosso",1)]
+
+**IMPORTANTE**: notare il tipo della funzione!
+
+L'**ordine delle coppie** all'interno della lista risultante **non** è rilevante.
+
+La funzione **conta_duplicati** deve essere definita in un file .sml autocontenuto ma **separato da qualsiasi codice di test si sia usato**. 
+Il file .sml deve contenere la chiamata a **conta_duplicati**. Si consegni il file .sml contenente la definizione di **conta_duplicati** rinominandolo *Cognome_Nome_Matricola.sml*.
+
+##### Testo
+
+##### Soluzione
+
+```
+fun conta_duplicati(L) =
+    let
+        fun estrai [] = nil
+         |  estrai (x::y) =
+             if(List.exists(fn a => a = x) y) then
+                estrai y
+             else
+                x::estrai y;
+        
+        val duplicati = estrai L;
+
+        fun conta s [] = 0
+         |  conta s (x::y) =
+             if s = x then 1 + conta s y
+             else conta s y;
+
+        fun tuple [] = nil 
+         |  tuple (x::y) = (x, conta x L)::tuple y;
+
+    in
+        tuple duplicati
+    end;
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+conta_duplicati [2, 2, 2, 2];
+conta_duplicati ["lunedi'", "lunedi'", "martedi'", "lunedi'"];
+conta_duplicati ["blu", "verde", "verde", "blu", "rosso"];
+conta_duplicati [1];
+conta_duplicati [1,1,1,1,1,1,1,1,1,1];
 ```
