@@ -49,6 +49,8 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
 - [Febbraio 2023](#esame-febbraio-2023)
 - [Giugno 2023](#esame-giugno-2023)
 - [Luglio 2023](#esame-luglio-2023)
+- [Gennaio 2024](#esame-gennaio-2024)
+- [Febbraio 2024](#esame-febbraio-2024)
 
 ### Esame giugno 2015
 
@@ -1420,6 +1422,8 @@ f [" ", "ab", "abc", "abcd", "abcde"] 3;
 
 ### Esame luglio 2023
 
+##### Testo
+
 Si scriva una funzione **conta_duplicati** (avente tipo `''a list -> (''a * int) list`) che riceve come argomento una lista di `''a` e restituisce una `lista di tuple ''a * int`. 
 
 La funzione **conta_duplicati** ritorna una lista di coppie (elemento, numero di occorrenze dell'elemento), cioè per ogni elemento distinto e della lista di input, la lista di output contiene una coppia (e, numero di occorrenze di e).
@@ -1435,8 +1439,6 @@ L'**ordine delle coppie** all'interno della lista risultante **non** è rilevant
 
 La funzione **conta_duplicati** deve essere definita in un file .sml autocontenuto ma **separato da qualsiasi codice di test si sia usato**. 
 Il file .sml deve contenere la chiamata a **conta_duplicati**. Si consegni il file .sml contenente la definizione di **conta_duplicati** rinominandolo *Cognome_Nome_Matricola.sml*.
-
-##### Testo
 
 ##### Soluzione
 
@@ -1473,4 +1475,113 @@ conta_duplicati ["lunedi'", "lunedi'", "martedi'", "lunedi'"];
 conta_duplicati ["blu", "verde", "verde", "blu", "rosso"];
 conta_duplicati [1];
 conta_duplicati [1,1,1,1,1,1,1,1,1,1];
+```
+
+### Esame gennaio 2024
+
+##### Testo
+
+Scrivere una funzione **suffixes** (di tipo `string -> string list`) che presa in input una stringa, ritorni una lista di tutti i suffissi della stringa, compresa la stringa stessa ed esclusa la stringa vuota.
+_nota: esista una funzione map che permette appendere un elemento a ogni elementi da lista_
+    
+##### Esempi: 
+
+> \> suffixes "ciao";
+val it : ["ciao" , "cia", "ci", "ci", "c"];
+
+> \> suffixes "";
+val it : [];
+
+> \> suffixes "hi world";
+val it : ["hi world","hi worl","hi wor","hi wo","hi w","hi ","hi","h"];
+
+##### Soluzione
+
+```
+fun suffixes s =
+    let
+        fun helper (str, acc) =
+            if str = "" then
+                List.rev acc
+            else
+                helper (String.extract (str, 1, NONE), str :: acc)
+    in
+        helper (s, [])
+    end;
+```
+
+oppure
+
+```
+fun suffixes "" = []
+ |  suffixes s = s :: suffixes (String.extract (s, 0, SOME (size s - 1)));
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+suffixes "ciao";
+suffixes "";
+suffixes "hi world";
+suffixes "test 123 4";
+```
+
+### Esame febbraio 2024
+
+##### Testo
+
+Scrivere una funzione **prefixes** (di tipo `string -> string list`) che presa in input una stringa, ritorni una lista di tutti i prefissi della stringa, compresa la stringa stessa ed esclusa la stringa vuota.
+_nota: esista una funzione map che permette appendere un elemento a ogni elementi da lista_
+    
+##### Esempi: 
+
+> \> prefixes "ciao";
+val it : ["c" , "ci", "cia", "ciao"];
+
+> \> prefixes "";
+val it : [];
+
+> \> prefixes "hi world";
+val it : ["h", "hi", "hi ", "hi w", "hi wo", "hi wor", "hi worl", "hi world"];
+
+##### Soluzione
+
+```
+fun prefixes s =
+    (* Helper function that generates the prefixes by using an index *)
+    let
+        (* Inner recursive function that constructs the prefix list *)
+        fun helper (str, len) =
+            if len = String.size str then
+                [str] (* If the length equals the size of the string, return the string as the final prefix *)
+            else
+                String.substring(str, 0, len) :: helper (str, len + 1)
+    in
+        if s = "" then [] (* If the input string is empty, return an empty list *)
+        else helper (s, 1) (* Otherwise, start generating prefixes from length 1 *)
+    end;
+```
+
+oppure 
+
+```
+fun prefixes s =
+    let
+        fun helper (str, acc, n) =
+            if n > String.size str then
+                List.rev acc
+            else
+                helper (str, (String.substring (str, 0, n)) :: acc, n + 1)
+    in
+        helper (s, [], 1)
+    end;
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+prefixes "ciao";
+prefixes "";
+prefixes "hi world";
+prefixes "test 123";
 ```
