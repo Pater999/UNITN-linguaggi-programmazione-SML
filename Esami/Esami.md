@@ -51,6 +51,7 @@ Prima di leggere questo file consiglio di leggere il [seguente Readme](https://g
 - [Luglio 2023](#esame-luglio-2023)
 - [Gennaio 2024](#esame-gennaio-2024)
 - [Febbraio 2024](#esame-febbraio-2024)
+- [Giugno 2024](#esame-giugno-2024)
 
 ### Esame giugno 2015
 
@@ -1584,4 +1585,74 @@ prefixes "ciao";
 prefixes "";
 prefixes "hi world";
 prefixes "test 123";
+```
+
+### Esame giugno 2024
+
+##### Testo
+
+L'esercizio consiste nell'implementare la funzione **sum_binary** di tipo `int list * int list -> int list` che implementa l'operazione di somma binaria.
+Nel programma **NON** è permesso l'utilizzo di operatori aritmetici **(+)** ma si possono usare gate come andalso oppure orelse. Si possono utilizzare funzioni di supporto.
+    
+##### Esempi: 
+
+> \> sum_binary([],[]);
+val it = []: int list;
+
+> \> sum_binary([1,0],[1]);
+val it = [1, 1]: int list;
+
+> \> sum_binary([1,0,0,1],[1,1,0]);
+val it = [1, 1, 1, 1]: int list;
+
+> \> sum_binary([1],[1,1]);
+val it = [1, 0, 0]: int list;
+    
+> \> sum_binary([1,1,0,0,1,1],[1,0,1,0]);
+val it = [1, 1, 1, 1, 0, 1]: int list;
+    
+> \> sum_binary([1,0,0,1,1],[1,1,1,0,1]);
+val it = [1, 1, 0, 0, 0, 0]: int list;
+
+##### Soluzione
+
+```
+fun orgate (0,0) = 0 | orgate (_,_) = 1;
+
+fun appo (nil,nil,true) = [1]
+ |  appo (nil,nil,false) = [0] 
+ |  appo (nil,L,true) = appo([0],L,true) 
+ |  appo (L,nil,true) = appo(L,[0],true)
+ |  appo (nil,L,false) = L 
+ |  appo (L,nil,false) = L
+ |  appo (L,nil,_) = L 
+ |  appo (L1,L2,carry) = if (hd(L1) = 1 andalso hd(L2) = 1) 
+                          then (if carry = true 
+                              then 1::appo(tl(L1),tl(L2),true) 
+                              else 0::appo(tl(L1),tl(L2),true) ) 
+                          else (if carry = true 
+                                  then if ((hd(L1) = 1 andalso hd(L2) = 0) orelse (hd(L1) = 0 andalso hd(L2) = 1)) 
+                                      then 0::appo(tl(L1),tl(L2),true)
+                                      else  1::appo(tl(L1),tl(L2),false) 
+                                  else orgate(hd(L1),hd(L2))::appo(tl(L1),tl(L2),false));
+
+fun sum_binary (nil,L) = L | sum_binary(L,nil) = L | sum_binary (L1,L2) =
+let
+  val R1 = List.rev(L1);
+  val R2 = List.rev(L2);
+in
+  List.rev(appo(R1,R2,false))
+end;
+
+```
+
+##### Testing (Non fa parte della soluzione - utile per capire)
+
+```
+sum_binary([],[]);
+sum_binary([1,0],[1]);
+sum_binary([1,0,0,1],[1,1,0]);
+sum_binary([1],[1,1]);
+sum_binary([1,1,0,0,1,1],[1,0,1,0]);
+sum_binary([1,0,0,1,1],[1,1,1,0,1]);
 ```
